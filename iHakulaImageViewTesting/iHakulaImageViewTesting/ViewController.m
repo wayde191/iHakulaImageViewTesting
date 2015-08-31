@@ -24,6 +24,7 @@
 {
     [_stretchableTableHeaderView scrollViewDidScroll:scrollView];
     _pageView.top = _stretchView.top + _stretchView.height - 30;
+    NSLog(@"%@", _pageView);
 }
 
 - (void)viewDidLayoutSubviews
@@ -56,6 +57,7 @@
     _pageView = [[iHPageView alloc] initWithPageNum:5];
     _pageView.top = _slideImageView.bottom - 28;
     _pageView.left = (IH_DEVICE_WIDTH - _pageView.width)/2.0f ;
+    _pageView.backgroundColor = [UIColor yellowColor];
     
     [self.stretchView addSubview:_pageView];
     
@@ -63,6 +65,9 @@
     [_stretchableTableHeaderView stretchHeaderForTableView:self.tableview withView:_stretchView];
     
     [self.tableview addSubview:_pageView];
+    
+    CGSize size = _slideImageView.scrollView.size;
+    _slideImageView.scrollView.contentSize = CGSizeMake(5 * IH_DEVICE_WIDTH, size.height);
 }
 
 - (void)didReceiveMemoryWarning {
@@ -107,6 +112,8 @@
 
 - (void)imageDidEndDeceleratingWithIndex:(int)imageIndex{
     NSLog(@"image clicked at index:%d",imageIndex);
+    [_pageView setCurrentPage:imageIndex];
+
 }
 
 @end
