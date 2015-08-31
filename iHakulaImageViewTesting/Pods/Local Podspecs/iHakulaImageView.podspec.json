@@ -1,0 +1,55 @@
+{
+  "name": "iHakulaImageView",
+  "platforms": {
+    "ios": "7.1"
+  },
+  "version": "0.4.0",
+  "authors": {
+    "Wayde Sun": "wsun191@gmail.com"
+  },
+  "homepage": "https://github.com/wayde191/iHakulaImageView",
+  "summary": "iHakulaImageView shoudl be prepared when you want to use all IHakula components.",
+  "source": {
+    "git": "https://github.com/wayde191/iHakulaImageView.git",
+    "tag": "0.4.0"
+  },
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "requires_arc": true,
+  "frameworks": [
+    "UIKit",
+    "Foundation"
+  ],
+  "dependencies": {
+    "IHakulaInfrastructure": [
+      "~> 0.2.0"
+    ]
+  },
+  "public_header_files": "iHakulaImageView/iHakulaImageView/**/*.{h}",
+  "source_files": "iHakulaImageView/iHakulaImageView/*.{h}",
+  "subspecs": [
+    {
+      "name": "iHStretchableView",
+      "source_files": "iHakulaImageView/iHakulaImageView/iHStretchableView/*.{h,m}"
+    },
+    {
+      "name": "iHPageView",
+      "source_files": "iHakulaImageView/iHakulaImageView/iHPageView/**/*.{h,m,png}"
+    },
+    {
+      "name": "iHImageView",
+      "source_files": "iHakulaImageView/iHakulaImageView/iHImageView/*.{h,m}"
+    },
+    {
+      "name": "iHImageSlideView",
+      "dependencies": {
+        "iHakulaImageView/iHImageView": [
+
+        ]
+      },
+      "source_files": "iHakulaImageView/iHakulaImageView/iHImageSlideView/*.{h,m,png}"
+    }
+  ]
+}
